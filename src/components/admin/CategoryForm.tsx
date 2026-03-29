@@ -44,7 +44,7 @@ const CategoryForm = () => {
   return (
     <div>
       <h2 style={{ color: '#ffffff', fontSize: '24px', fontWeight: '700', marginBottom: '8px' }}>Domains</h2>
-      <p style={{ color: '#52525b', fontSize: '14px', marginBottom: '32px' }}>Manage your project categories</p>
+      <p style={{ color: '#a1a1aa', fontSize: '14px', marginBottom: '32px' }}>Manage your project categories</p>
 
       {/* Add */}
       <div style={{ display: 'flex', gap: '12px', marginBottom: '32px', maxWidth: '500px' }}>
@@ -60,15 +60,15 @@ const CategoryForm = () => {
           <div key={cat.id} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '14px 16px', backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '10px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                <button onClick={() => handleReorder(cat, index, 'up')} disabled={index === 0} style={{ background: 'none', border: 'none', cursor: index === 0 ? 'not-allowed' : 'pointer', color: index === 0 ? '#3f3f46' : '#71717a', padding: '2px', display: 'flex' }}>▲</button>
-                <button onClick={() => handleReorder(cat, index, 'down')} disabled={index === categories.length - 1} style={{ background: 'none', border: 'none', cursor: index === categories.length - 1 ? 'not-allowed' : 'pointer', color: index === categories.length - 1 ? '#3f3f46' : '#71717a', padding: '2px', display: 'flex' }}>▼</button>
+                <button onClick={() => handleReorder(cat, index, 'up')} disabled={index === 0} style={{ background: 'none', border: 'none', cursor: index === 0 ? 'not-allowed' : 'pointer', color: index === 0 ? '#71717a' : '#b4b4b4', padding: '2px', display: 'flex' }}>▲</button>
+                <button onClick={() => handleReorder(cat, index, 'down')} disabled={index === categories.length - 1} style={{ background: 'none', border: 'none', cursor: index === categories.length - 1 ? 'not-allowed' : 'pointer', color: index === categories.length - 1 ? '#71717a' : '#b4b4b4', padding: '2px', display: 'flex' }}>▼</button>
               </div>
               <div>
                 <p style={{ color: '#ffffff', fontSize: '14px', fontWeight: '500', margin: 0 }}>{cat.name}</p>
-                <p style={{ color: '#52525b', fontSize: '12px', margin: 0 }}>{cat._count?.projects || 0} projects</p>
+                <p style={{ color: '#a1a1aa', fontSize: '12px', margin: 0 }}>{cat._count?.projects || 0} projects</p>
               </div>
             </div>
-            <button onClick={() => handleDelete(cat.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#52525b', display: 'flex', padding: '4px' }} onMouseEnter={e => (e.currentTarget.style.color = '#f87171')} onMouseLeave={e => (e.currentTarget.style.color = '#52525b')}>
+            <button onClick={() => handleDelete(cat.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#a1a1aa', display: 'flex', padding: '4px' }} onMouseEnter={e => (e.currentTarget.style.color = '#f87171')} onMouseLeave={e => (e.currentTarget.style.color = '#a1a1aa')}>
               <Trash2 size={16} />
             </button>
           </div>

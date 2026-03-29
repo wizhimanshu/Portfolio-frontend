@@ -49,7 +49,7 @@ const SkillForm = () => {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
         <div>
           <h2 style={{ color: '#ffffff', fontSize: '24px', fontWeight: '700', margin: 0 }}>Skills</h2>
-          <p style={{ color: '#52525b', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>Manage your tech stack — set order number to rearrange</p>
+          <p style={{ color: '#a1a1aa', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>Manage your tech stack — set order number to rearrange</p>
         </div>
         <button onClick={() => setShowAdd(!showAdd)} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 18px', backgroundColor: '#22c55e', color: '#0a0a0a', fontWeight: '700', fontSize: '14px', border: 'none', borderRadius: '10px', cursor: 'pointer' }}>
           <Plus size={16} /> Add Skill
@@ -64,15 +64,15 @@ const SkillForm = () => {
             <input value={form.icon} onChange={e => setForm(f => ({ ...f, icon: e.target.value }))} placeholder="Icon key (e.g. react, nestjs, python)" style={{ padding: '10px 14px', backgroundColor: '#0a0a0a', border: '1px solid #27272a', borderRadius: '8px', color: '#ffffff', fontSize: '14px', outline: 'none' }} onFocus={e => (e.currentTarget.style.borderColor = '#22c55e')} onBlur={e => (e.currentTarget.style.borderColor = '#27272a')} />
             <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
               <div style={{ flex: 1 }}>
-                <label style={{ color: '#71717a', fontSize: '12px', display: 'block', marginBottom: '6px' }}>Color</label>
+                <label style={{ color: '#b4b4b4', fontSize: '12px', display: 'block', marginBottom: '6px' }}>Color</label>
                 <input type="color" value={form.color} onChange={e => setForm(f => ({ ...f, color: e.target.value }))} style={{ width: '100%', height: '40px', padding: '2px', backgroundColor: '#0a0a0a', border: '1px solid #27272a', borderRadius: '8px', cursor: 'pointer' }} />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={{ color: '#71717a', fontSize: '12px', display: 'block', marginBottom: '6px' }}>Projects used in</label>
+                <label style={{ color: '#b4b4b4', fontSize: '12px', display: 'block', marginBottom: '6px' }}>Projects used in</label>
                 <input type="number" value={form.usageCount} onChange={e => setForm(f => ({ ...f, usageCount: parseInt(e.target.value) }))} min={1} style={{ width: '100%', padding: '10px 14px', backgroundColor: '#0a0a0a', border: '1px solid #27272a', borderRadius: '8px', color: '#ffffff', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} />
               </div>
               <div style={{ flex: 1 }}>
-                <label style={{ color: '#71717a', fontSize: '12px', display: 'block', marginBottom: '6px' }}>Order</label>
+                <label style={{ color: '#b4b4b4', fontSize: '12px', display: 'block', marginBottom: '6px' }}>Order</label>
                 <input type="number" value={form.order} onChange={e => setForm(f => ({ ...f, order: parseInt(e.target.value) }))} min={0} style={{ width: '100%', padding: '10px 14px', backgroundColor: '#0a0a0a', border: '1px solid #27272a', borderRadius: '8px', color: '#ffffff', fontSize: '14px', outline: 'none', boxSizing: 'border-box' }} />
               </div>
             </div>
@@ -93,17 +93,17 @@ const SkillForm = () => {
                 <p style={{ color: '#ffffff', fontSize: '14px', fontWeight: '600', margin: 0 }}>{skill.name}</p>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '4px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <span style={{ color: '#52525b', fontSize: '11px' }}>Usage:</span>
-                    <input type="number" value={skill.usageCount} onChange={e => handleUsageChange(skill, parseInt(e.target.value))} min={1} style={{ width: '44px', padding: '2px 6px', backgroundColor: '#0a0a0a', border: '1px solid #27272a', borderRadius: '4px', color: '#71717a', fontSize: '11px', outline: 'none' }} />
+                    <span style={{ color: '#a1a1aa', fontSize: '11px' }}>Usage:</span>
+                    <input type="number" value={skill.usageCount} onChange={e => handleUsageChange(skill, parseInt(e.target.value))} min={1} style={{ width: '44px', padding: '2px 6px', backgroundColor: '#0a0a0a', border: '1px solid #27272a', borderRadius: '4px', color: '#b4b4b4', fontSize: '11px', outline: 'none' }} />
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                    <span style={{ color: '#52525b', fontSize: '11px' }}>Order:</span>
+                    <span style={{ color: '#a1a1aa', fontSize: '11px' }}>Order:</span>
                     <input type="number" value={skill.order} onChange={e => handleOrderChange(skill, parseInt(e.target.value))} min={0} style={{ width: '44px', padding: '2px 6px', backgroundColor: '#0a0a0a', border: '1px solid #22c55e44', borderRadius: '4px', color: '#22c55e', fontSize: '11px', outline: 'none' }} />
                   </div>
                 </div>
               </div>
             </div>
-            <button onClick={() => handleDelete(skill.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#52525b', display: 'flex', padding: '4px', flexShrink: 0 }} onMouseEnter={e => (e.currentTarget.style.color = '#f87171')} onMouseLeave={e => (e.currentTarget.style.color = '#52525b')}>
+            <button onClick={() => handleDelete(skill.id)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#a1a1aa', display: 'flex', padding: '4px', flexShrink: 0 }} onMouseEnter={e => (e.currentTarget.style.color = '#f87171')} onMouseLeave={e => (e.currentTarget.style.color = '#a1a1aa')}>
               <Trash2 size={14} />
             </button>
           </div>
@@ -111,7 +111,7 @@ const SkillForm = () => {
       </div>
 
       {/* Order hint */}
-      <p style={{ color: '#3f3f46', fontSize: '12px', marginTop: '16px' }}>💡 Lower order number = appears first. Changes apply instantly.</p>
+      <p style={{ color: '#71717a', fontSize: '12px', marginTop: '16px' }}>💡 Lower order number = appears first. Changes apply instantly.</p>
     </div>
   )
 }

@@ -108,7 +108,7 @@ const ProjectForm = () => {
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
         <div>
           <h2 style={{ color: '#ffffff', fontSize: '24px', fontWeight: '700', margin: 0 }}>Projects</h2>
-          <p style={{ color: '#52525b', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>{projects.length} total projects</p>
+          <p style={{ color: '#a1a1aa', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>{projects.length} total projects</p>
         </div>
         {!showForm && (
           <button onClick={() => setShowForm(true)} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 18px', backgroundColor: '#22c55e', color: '#0a0a0a', fontWeight: '700', fontSize: '14px', border: 'none', borderRadius: '10px', cursor: 'pointer' }}>
@@ -122,7 +122,7 @@ const ProjectForm = () => {
         <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px', marginBottom: '32px' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
             <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: 0 }}>{editingId ? 'Edit Project' : 'New Project'}</h3>
-            <button onClick={handleCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#71717a', display: 'flex' }}>
+            <button onClick={handleCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#b4b4b4', display: 'flex' }}>
               <X size={20} />
             </button>
           </div>
@@ -150,7 +150,7 @@ const ProjectForm = () => {
                     </button>
                   </div>
                 )}
-                <label style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backgroundColor: '#0a0a0a', border: '1px dashed #27272a', borderRadius: '8px', cursor: 'pointer', color: '#71717a', fontSize: '13px', minHeight: '80px' }}>
+                <label style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backgroundColor: '#0a0a0a', border: '1px dashed #27272a', borderRadius: '8px', cursor: 'pointer', color: '#b4b4b4', fontSize: '13px', minHeight: '80px' }}>
                   {uploading ? 'Uploading...' : form.imageUrl ? 'Change Image' : '+ Upload Image'}
                   <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
                 </label>
@@ -199,7 +199,7 @@ const ProjectForm = () => {
             <button onClick={handleSubmit} disabled={loading} style={{ padding: '11px 28px', backgroundColor: '#22c55e', color: '#0a0a0a', fontWeight: '700', fontSize: '14px', border: 'none', borderRadius: '10px', cursor: loading ? 'not-allowed' : 'pointer' }}>
               {loading ? 'Saving...' : editingId ? 'Update Project' : 'Add Project'}
             </button>
-            <button onClick={handleCancel} style={{ padding: '11px 20px', backgroundColor: 'transparent', color: '#71717a', fontWeight: '600', fontSize: '14px', border: '1px solid #27272a', borderRadius: '10px', cursor: 'pointer' }}>
+            <button onClick={handleCancel} style={{ padding: '11px 20px', backgroundColor: 'transparent', color: '#b4b4b4', fontWeight: '600', fontSize: '14px', border: '1px solid #27272a', borderRadius: '10px', cursor: 'pointer' }}>
               Cancel
             </button>
           </div>
@@ -208,11 +208,11 @@ const ProjectForm = () => {
 
       {/* Filter */}
       <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
-        <button onClick={() => setFilterCategory('')} style={{ padding: '6px 16px', borderRadius: '999px', border: '1px solid', borderColor: filterCategory === '' ? '#22c55e' : '#27272a', backgroundColor: filterCategory === '' ? '#22c55e11' : 'transparent', color: filterCategory === '' ? '#22c55e' : '#71717a', fontSize: '13px', cursor: 'pointer' }}>
+        <button onClick={() => setFilterCategory('')} style={{ padding: '6px 16px', borderRadius: '999px', border: '1px solid', borderColor: filterCategory === '' ? '#22c55e' : '#27272a', backgroundColor: filterCategory === '' ? '#22c55e11' : 'transparent', color: filterCategory === '' ? '#22c55e' : '#b4b4b4', fontSize: '13px', cursor: 'pointer' }}>
           All ({projects.length})
         </button>
         {categories.map(cat => (
-          <button key={cat.id} onClick={() => setFilterCategory(cat.id)} style={{ padding: '6px 16px', borderRadius: '999px', border: '1px solid', borderColor: filterCategory === cat.id ? '#22c55e' : '#27272a', backgroundColor: filterCategory === cat.id ? '#22c55e11' : 'transparent', color: filterCategory === cat.id ? '#22c55e' : '#71717a', fontSize: '13px', cursor: 'pointer' }}>
+          <button key={cat.id} onClick={() => setFilterCategory(cat.id)} style={{ padding: '6px 16px', borderRadius: '999px', border: '1px solid', borderColor: filterCategory === cat.id ? '#22c55e' : '#27272a', backgroundColor: filterCategory === cat.id ? '#22c55e11' : 'transparent', color: filterCategory === cat.id ? '#22c55e' : '#b4b4b4', fontSize: '13px', cursor: 'pointer' }}>
             {cat.name} ({cat._count?.projects || 0})
           </button>
         ))}
@@ -221,7 +221,7 @@ const ProjectForm = () => {
       {/* Projects List */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {filteredProjects.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '60px', color: '#3f3f46' }}>
+          <div style={{ textAlign: 'center', padding: '60px', color: '#71717a' }}>
             <p>No projects yet. Click "Add Project" to get started.</p>
           </div>
         ) : (
@@ -231,7 +231,7 @@ const ProjectForm = () => {
                 <img src={project.imageUrl} alt={project.title} style={{ width: '80px', height: '60px', objectFit: 'cover', borderRadius: '8px', flexShrink: 0 }} />
               ) : (
                 <div style={{ width: '80px', height: '60px', backgroundColor: '#1a1a1a', borderRadius: '8px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <span style={{ color: '#3f3f46', fontSize: '11px' }}>No img</span>
+                  <span style={{ color: '#71717a', fontSize: '11px' }}>No img</span>
                 </div>
               )}
               <div style={{ flex: 1, minWidth: 0 }}>
@@ -240,10 +240,10 @@ const ProjectForm = () => {
                   {project.isFeatured && <span style={{ padding: '2px 8px', backgroundColor: '#22c55e22', border: '1px solid #22c55e44', borderRadius: '999px', color: '#22c55e', fontSize: '11px' }}>Featured</span>}
                   {project.category && <span style={{ padding: '2px 8px', backgroundColor: '#27272a', borderRadius: '999px', color: '#a1a1aa', fontSize: '11px' }}>{project.category.name}</span>}
                 </div>
-                <p style={{ color: '#52525b', fontSize: '13px', margin: '4px 0 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{project.description}</p>
+                <p style={{ color: '#a1a1aa', fontSize: '13px', margin: '4px 0 0', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{project.description}</p>
                 <div style={{ display: 'flex', gap: '12px', marginTop: '6px' }}>
-                  {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#52525b', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', textDecoration: 'none' }}><Github size={12} /> GitHub</a>}
-                  {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#52525b', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', textDecoration: 'none' }}><ExternalLink size={12} /> Live</a>}
+                  {project.githubUrl && <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', textDecoration: 'none' }}><Github size={12} /> GitHub</a>}
+                  {project.liveUrl && <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" style={{ color: '#a1a1aa', display: 'flex', alignItems: 'center', gap: '4px', fontSize: '12px', textDecoration: 'none' }}><ExternalLink size={12} /> Live</a>}
                 </div>
               </div>
               <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>

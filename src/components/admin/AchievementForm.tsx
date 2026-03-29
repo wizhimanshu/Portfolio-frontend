@@ -111,7 +111,7 @@ const AchievementForm = () => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
                 <div>
                     <h2 style={{ color: '#ffffff', fontSize: '24px', fontWeight: '700', margin: 0 }}>Achievements</h2>
-                    <p style={{ color: '#52525b', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>{achievements.length} total achievements</p>
+                    <p style={{ color: '#a1a1aa', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>{achievements.length} total achievements</p>
                 </div>
                 {!showForm && (
                     <button onClick={() => setShowForm(true)} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 18px', backgroundColor: '#22c55e', color: '#0a0a0a', fontWeight: '700', fontSize: '14px', border: 'none', borderRadius: '10px', cursor: 'pointer' }}>
@@ -125,7 +125,7 @@ const AchievementForm = () => {
                 <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px', marginBottom: '32px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
                         <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: 0 }}>{editingId ? 'Edit Achievement' : 'New Achievement'}</h3>
-                        <button onClick={handleCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#71717a', display: 'flex' }}>
+                        <button onClick={handleCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#b4b4b4', display: 'flex' }}>
                             <X size={20} />
                         </button>
                     </div>
@@ -177,7 +177,7 @@ const AchievementForm = () => {
                                         </button>
                                     </div>
                                 )}
-                                <label style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backgroundColor: '#0a0a0a', border: '1px dashed #27272a', borderRadius: '8px', cursor: 'pointer', color: '#71717a', fontSize: '13px', minHeight: '80px' }}>
+                                <label style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', backgroundColor: '#0a0a0a', border: '1px dashed #27272a', borderRadius: '8px', cursor: 'pointer', color: '#b4b4b4', fontSize: '13px', minHeight: '80px' }}>
                                     {uploading ? 'Uploading...' : form.imageUrl ? 'Change Image' : '+ Upload Image'}
                                     <input type="file" accept="image/*" onChange={handleImageUpload} style={{ display: 'none' }} />
                                 </label>
@@ -196,7 +196,7 @@ const AchievementForm = () => {
                         <button onClick={handleSubmit} disabled={loading} style={{ padding: '11px 28px', backgroundColor: '#22c55e', color: '#0a0a0a', fontWeight: '700', fontSize: '14px', border: 'none', borderRadius: '10px', cursor: loading ? 'not-allowed' : 'pointer' }}>
                             {loading ? 'Saving...' : editingId ? 'Update' : 'Add Achievement'}
                         </button>
-                        <button onClick={handleCancel} style={{ padding: '11px 20px', backgroundColor: 'transparent', color: '#71717a', fontWeight: '600', fontSize: '14px', border: '1px solid #27272a', borderRadius: '10px', cursor: 'pointer' }}>
+                        <button onClick={handleCancel} style={{ padding: '11px 20px', backgroundColor: 'transparent', color: '#b4b4b4', fontWeight: '600', fontSize: '14px', border: '1px solid #27272a', borderRadius: '10px', cursor: 'pointer' }}>
                             Cancel
                         </button>
                     </div>
@@ -206,7 +206,7 @@ const AchievementForm = () => {
             {/* Filter */}
             <div style={{ display: 'flex', gap: '8px', marginBottom: '20px', flexWrap: 'wrap' }}>
                 {['all', 'certificate', 'hackathon', 'award'].map(type => (
-                    <button key={type} onClick={() => setFilter(type)} style={{ padding: '6px 16px', borderRadius: '999px', border: '1px solid', borderColor: filter === type ? '#22c55e' : '#27272a', backgroundColor: filter === type ? '#22c55e11' : 'transparent', color: filter === type ? '#22c55e' : '#71717a', fontSize: '13px', cursor: 'pointer', textTransform: 'capitalize' }}>
+                    <button key={type} onClick={() => setFilter(type)} style={{ padding: '6px 16px', borderRadius: '999px', border: '1px solid', borderColor: filter === type ? '#22c55e' : '#27272a', backgroundColor: filter === type ? '#22c55e11' : 'transparent', color: filter === type ? '#22c55e' : '#b4b4b4', fontSize: '13px', cursor: 'pointer', textTransform: 'capitalize' }}>
                         {type === 'all' ? `All (${achievements.length})` : `${type} (${achievements.filter(a => a.type === type).length})`}
                     </button>
                 ))}
@@ -215,7 +215,7 @@ const AchievementForm = () => {
             {/* List */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {filtered.length === 0 ? (
-                    <div style={{ textAlign: 'center', padding: '60px', color: '#3f3f46' }}>
+                    <div style={{ textAlign: 'center', padding: '60px', color: '#71717a' }}>
                         <p>No achievements yet. Click "Add Achievement" to get started.</p>
                     </div>
                 ) : (
@@ -225,7 +225,7 @@ const AchievementForm = () => {
                                 <img src={a.imageUrl} alt={a.title} style={{ width: '80px', height: '60px', objectFit: 'cover', borderRadius: '8px', flexShrink: 0 }} />
                             ) : (
                                 <div style={{ width: '80px', height: '60px', backgroundColor: '#1a1a1a', borderRadius: '8px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                    <span style={{ color: '#3f3f46', fontSize: '11px' }}>No img</span>
+                                    <span style={{ color: '#71717a', fontSize: '11px' }}>No img</span>
                                 </div>
                             )}
                             <div style={{ flex: 1, minWidth: 0 }}>
@@ -233,7 +233,7 @@ const AchievementForm = () => {
                                     <h3 style={{ color: '#ffffff', fontSize: '15px', fontWeight: '600', margin: 0 }}>{a.title}</h3>
                                     <span style={{ padding: '2px 8px', backgroundColor: `${typeColors[a.type] || '#22c55e'}22`, border: `1px solid ${typeColors[a.type] || '#22c55e'}44`, borderRadius: '999px', color: typeColors[a.type] || '#22c55e', fontSize: '11px', textTransform: 'capitalize' }}>{a.type}</span>
                                 </div>
-                                <p style={{ color: '#52525b', fontSize: '13px', margin: '4px 0 0' }}>{a.organization} · {a.date}</p>
+                                <p style={{ color: '#a1a1aa', fontSize: '13px', margin: '4px 0 0' }}>{a.organization} · {a.date}</p>
                             </div>
                             <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
                                 {a.driveLink && <a href={a.driveLink} target="_blank" rel="noopener noreferrer" style={{ padding: '8px', backgroundColor: '#1a1a1a', border: '1px solid #27272a', borderRadius: '8px', cursor: 'pointer', color: '#a1a1aa', display: 'flex', textDecoration: 'none' }}><ExternalLink size={14} /></a>}

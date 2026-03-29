@@ -68,7 +68,7 @@ const ExperienceForm = () => {
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '32px' }}>
                 <div>
                     <h2 style={{ color: '#ffffff', fontSize: '24px', fontWeight: '700', margin: 0 }}>Experience</h2>
-                    <p style={{ color: '#52525b', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>Manage your professional journey</p>
+                    <p style={{ color: '#a1a1aa', fontSize: '14px', marginTop: '4px', marginBottom: 0 }}>Manage your professional journey</p>
                 </div>
                 {!showForm && (
                     <button onClick={() => setShowForm(true)} style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '10px 18px', backgroundColor: '#22c55e', color: '#0a0a0a', fontWeight: '700', fontSize: '14px', border: 'none', borderRadius: '10px', cursor: 'pointer' }}>
@@ -82,7 +82,7 @@ const ExperienceForm = () => {
                 <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px', marginBottom: '32px' }}>
                     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '24px' }}>
                         <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: 0 }}>{editingId ? 'Edit Experience' : 'New Experience'}</h3>
-                        <button onClick={handleCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#71717a', display: 'flex' }}>
+                        <button onClick={handleCancel} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#b4b4b4', display: 'flex' }}>
                             <X size={20} />
                         </button>
                     </div>
@@ -128,7 +128,7 @@ const ExperienceForm = () => {
                             <button onClick={handleSubmit} disabled={loading} style={{ padding: '11px 28px', backgroundColor: '#22c55e', color: '#0a0a0a', fontWeight: '700', fontSize: '14px', border: 'none', borderRadius: '10px', cursor: loading ? 'not-allowed' : 'pointer' }}>
                                 {loading ? 'Saving...' : editingId ? 'Update' : 'Add Experience'}
                             </button>
-                            <button onClick={handleCancel} style={{ padding: '11px 20px', backgroundColor: 'transparent', color: '#71717a', fontWeight: '600', fontSize: '14px', border: '1px solid #27272a', borderRadius: '10px', cursor: 'pointer' }}>
+                            <button onClick={handleCancel} style={{ padding: '11px 20px', backgroundColor: 'transparent', color: '#b4b4b4', fontWeight: '600', fontSize: '14px', border: '1px solid #27272a', borderRadius: '10px', cursor: 'pointer' }}>
                                 Cancel
                             </button>
                         </div>
@@ -139,7 +139,7 @@ const ExperienceForm = () => {
             {/* List */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                 {experiences.length === 0 ? (
-                    <div style={{ textAlign: 'center', padding: '60px', color: '#3f3f46' }}>
+                    <div style={{ textAlign: 'center', padding: '60px', color: '#71717a' }}>
                         <p>No experience added yet. Click "Add Experience" to get started.</p>
                     </div>
                 ) : (
@@ -151,8 +151,8 @@ const ExperienceForm = () => {
                                     {exp.isCurrent && <span style={{ padding: '2px 8px', backgroundColor: '#22c55e22', border: '1px solid #22c55e44', borderRadius: '999px', color: '#22c55e', fontSize: '11px' }}>Current</span>}
                                 </div>
                                 <h3 style={{ color: '#ffffff', fontSize: '16px', fontWeight: '700', margin: '0 0 2px' }}>{exp.role}</h3>
-                                <p style={{ color: '#71717a', fontSize: '14px', margin: '0 0 8px' }}>{exp.company}</p>
-                                <p style={{ color: '#52525b', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>{exp.description}</p>
+                                <p style={{ color: '#b4b4b4', fontSize: '14px', margin: '0 0 8px' }}>{exp.company}</p>
+                                <p style={{ color: '#a1a1aa', fontSize: '13px', lineHeight: '1.6', margin: 0 }}>{exp.description}</p>
                             </div>
                             <div style={{ display: 'flex', gap: '8px', flexShrink: 0 }}>
                                 <button onClick={() => handleEdit(exp)} style={{ padding: '8px', backgroundColor: '#1a1a1a', border: '1px solid #27272a', borderRadius: '8px', cursor: 'pointer', color: '#a1a1aa', display: 'flex' }}>

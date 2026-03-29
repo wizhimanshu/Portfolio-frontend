@@ -42,7 +42,7 @@ const TechStack = () => {
     <section id="techstack" style={{ backgroundColor: '#0a0a0a', padding: '80px 64px', borderTop: '1px solid #27272a' }}>
       <div style={{ marginBottom: '48px' }}>
         <h2 style={{ color: '#ffffff', fontSize: 'clamp(28px, 4vw, 42px)', fontWeight: '800', letterSpacing: '-0.02em', margin: '0 0 8px' }}>Tech Stack</h2>
-        <p style={{ color: '#52525b', fontSize: '15px', margin: 0 }}>Modern tools I use to build robust applications.</p>
+        <p style={{ color: '#a1a1aa', fontSize: '15px', margin: 0 }}>Modern tools I use to build robust applications.</p>
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '16px' }}>

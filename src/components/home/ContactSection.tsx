@@ -34,22 +34,22 @@ const ContactSection = () => {
                 <div>
                     <p style={{ color: '#22c55e', fontSize: '13px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>Contact</p>
                     <h2 style={{ color: '#ffffff', fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: '800', letterSpacing: '-0.02em', margin: '0 0 16px' }}>Get In Touch</h2>
-                    <p style={{ color: '#52525b', fontSize: '15px', lineHeight: '1.7', margin: '0 0 40px' }}>Have a project in mind or just want to say hi? My inbox is always open. I'll get back to you as soon as possible!</p>
+                    <p style={{ color: '#a1a1aa', fontSize: '15px', lineHeight: '1.7', margin: '0 0 40px' }}>Have a project in mind or just want to say hi? My inbox is always open. I'll get back to you as soon as possible!</p>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                        <a href="mailto:himanshukumar.portfolio@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#71717a', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')} onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
+                        <a href="mailto:himanshukumar.portfolio@gmail.com" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#b4b4b4', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')} onMouseLeave={e => (e.currentTarget.style.color = '#b4b4b4')}>
                             <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#111111', border: '1px solid #1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <Mail size={16} />
                             </div>
                             Send a mail
                         </a>
-                        <a href="https://github.com/wizhimanshu" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#71717a', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')} onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
+                        <a href="https://github.com/wizhimanshu" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#b4b4b4', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')} onMouseLeave={e => (e.currentTarget.style.color = '#b4b4b4')}>
                             <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#111111', border: '1px solid #1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <Github size={16} />
                             </div>
                             Check out Repositories
                         </a>
-                        <a href="https://linkedin.com/in/connectwith-himanshu-kumar" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#71717a', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')} onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}>
+                        <a href="https://linkedin.com/in/connectwith-himanshu-kumar" target="_blank" rel="noopener noreferrer" style={{ display: 'flex', alignItems: 'center', gap: '12px', color: '#b4b4b4', textDecoration: 'none', fontSize: '14px', transition: 'color 0.2s' }} onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')} onMouseLeave={e => (e.currentTarget.style.color = '#b4b4b4')}>
                             <div style={{ width: '40px', height: '40px', borderRadius: '10px', backgroundColor: '#111111', border: '1px solid #1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                 <Linkedin size={16} />
                             </div>

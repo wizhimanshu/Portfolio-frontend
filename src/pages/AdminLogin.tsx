@@ -33,7 +33,7 @@ const AdminLogin = () => {
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', color: '#0a0a0a', fontWeight: '800', fontSize: '20px' }}>H</div>
           <h1 style={{ color: '#ffffff', fontSize: '24px', fontWeight: '700', margin: 0 }}>Admin Login</h1>
-          <p style={{ color: '#52525b', fontSize: '14px', marginTop: '8px' }}>Sign in to manage your portfolio</p>
+          <p style={{ color: '#a1a1aa', fontSize: '14px', marginTop: '8px' }}>Sign in to manage your portfolio</p>
         </div>
 
         {/* Form */}

@@ -29,16 +29,16 @@ const Projects = () => {
       <div style={{ marginBottom: '48px' }}>
         <p style={{ color: '#22c55e', fontSize: '13px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>Work</p>
         <h1 style={{ color: '#ffffff', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: '800', letterSpacing: '-0.02em', margin: 0 }}>All Projects</h1>
-        <p style={{ color: '#52525b', fontSize: '15px', marginTop: '12px' }}>{projects.length} projects across {categories.length} Domains</p>
+        <p style={{ color: '#a1a1aa', fontSize: '15px', marginTop: '12px' }}>{projects.length} projects across {categories.length} Domains</p>
       </div>
 
       {/* Category Filter */}
       <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '40px' }}>
-        <button onClick={() => setActiveCategory('')} style={{ padding: '8px 20px', borderRadius: '999px', border: '1px solid', borderColor: activeCategory === '' ? '#22c55e' : '#27272a', backgroundColor: activeCategory === '' ? '#22c55e11' : 'transparent', color: activeCategory === '' ? '#22c55e' : '#71717a', fontSize: '13px', fontWeight: '500', cursor: 'pointer', transition: 'all 0.2s' }}>
+        <button onClick={() => setActiveCategory('')} style={{ padding: '8px 20px', borderRadius: '999px', border: '1px solid', borderColor: activeCategory === '' ? '#22c55e' : '#27272a', backgroundColor: activeCategory === '' ? '#22c55e11' : 'transparent', color: activeCategory === '' ? '#22c55e' : '#b4b4b4', fontSize: '13px', fontWeight: '500', cursor: 'pointer', transition: 'all 0.2s' }}>
           All ({projects.length})
         </button>
         {categories.map(cat => (
-          <button key={cat.id} onClick={() => setActiveCategory(cat.id)} style={{ padding: '8px 20px', borderRadius: '999px', border: '1px solid', borderColor: activeCategory === cat.id ? '#22c55e' : '#27272a', backgroundColor: activeCategory === cat.id ? '#22c55e11' : 'transparent', color: activeCategory === cat.id ? '#22c55e' : '#71717a', fontSize: '13px', fontWeight: '500', cursor: 'pointer', transition: 'all 0.2s' }}>
+          <button key={cat.id} onClick={() => setActiveCategory(cat.id)} style={{ padding: '8px 20px', borderRadius: '999px', border: '1px solid', borderColor: activeCategory === cat.id ? '#22c55e' : '#27272a', backgroundColor: activeCategory === cat.id ? '#22c55e11' : 'transparent', color: activeCategory === cat.id ? '#22c55e' : '#b4b4b4', fontSize: '13px', fontWeight: '500', cursor: 'pointer', transition: 'all 0.2s' }}>
             {cat.name} ({cat._count?.projects || 0})
           </button>
         ))}
@@ -52,7 +52,7 @@ const Projects = () => {
           ))}
         </div>
       ) : filtered.length === 0 ? (
-        <div style={{ textAlign: 'center', padding: '100px 0', color: '#3f3f46' }}>
+        <div style={{ textAlign: 'center', padding: '100px 0', color: '#71717a' }}>
           <p style={{ fontSize: '16px' }}>No projects in this domain yet.</p>
         </div>
       ) : (
@@ -82,19 +82,19 @@ const ProjectCard = ({ project, onClick }: { project: Project, onClick: () => vo
         </div>
       ) : (
         <div style={{ width: '100%', height: '200px', backgroundColor: '#1a1a1a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <span style={{ color: '#3f3f46', fontSize: '13px' }}>No preview</span>
+          <span style={{ color: '#71717a', fontSize: '13px' }}>No preview</span>
         </div>
       )}
       <div style={{ padding: '20px' }}>
         {project.category && <span style={{ fontSize: '11px', fontWeight: '600', color: '#22c55e', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{project.category.name}</span>}
         <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: '8px 0', letterSpacing: '-0.01em' }}>{project.title}</h3>
-        <p style={{ color: '#71717a', fontSize: '14px', lineHeight: '1.6', margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{project.description}</p>
+        <p style={{ color: '#b4b4b4', fontSize: '14px', lineHeight: '1.6', margin: 0, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{project.description}</p>
         {project.tags?.length > 0 && (
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px', marginTop: '12px' }}>
             {project.tags.slice(0, 3).map(tag => (
               <span key={tag} style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: '#1a1a1a', border: '1px solid #27272a', color: '#a1a1aa', fontSize: '11px' }}>{tag}</span>
             ))}
-            {project.tags.length > 3 && <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: '#1a1a1a', border: '1px solid #27272a', color: '#52525b', fontSize: '11px' }}>+{project.tags.length - 3}</span>}
+            {project.tags.length > 3 && <span style={{ padding: '3px 10px', borderRadius: '999px', backgroundColor: '#1a1a1a', border: '1px solid #27272a', color: '#a1a1aa', fontSize: '11px' }}>+{project.tags.length - 3}</span>}
           </div>
         )}
       </div>
@@ -127,7 +127,7 @@ const ProjectModal = ({ project, onClose }: { project: Project, onClose: () => v
               {project.category && <span style={{ fontSize: '11px', fontWeight: '600', color: '#22c55e', textTransform: 'uppercase', letterSpacing: '0.08em' }}>{project.category.name}</span>}
               <h2 style={{ color: '#ffffff', fontSize: '28px', fontWeight: '800', margin: '6px 0 0', letterSpacing: '-0.02em' }}>{project.title}</h2>
             </div>
-            <button onClick={onClose} style={{ background: 'none', border: '1px solid #27272a', borderRadius: '8px', cursor: 'pointer', color: '#71717a', padding: '6px 10px', fontSize: '13px', flexShrink: 0 }}>ESC</button>
+            <button onClick={onClose} style={{ background: 'none', border: '1px solid #27272a', borderRadius: '8px', cursor: 'pointer', color: '#b4b4b4', padding: '6px 10px', fontSize: '13px', flexShrink: 0 }}>ESC</button>
           </div>
           <p style={{ color: '#a1a1aa', fontSize: '15px', lineHeight: '1.7', marginBottom: '24px' }}>{project.description}</p>
           {project.tags?.length > 0 && (
@@ -148,7 +148,7 @@ const ProjectModal = ({ project, onClose }: { project: Project, onClose: () => v
                 <ExternalLink size={16} /> Live Demo
               </a>
             )}
-            <span style={{ marginLeft: 'auto', color: '#3f3f46', fontSize: '12px', alignSelf: 'center' }}>
+            <span style={{ marginLeft: 'auto', color: '#71717a', fontSize: '12px', alignSelf: 'center' }}>
               {new Date(project.projectDate).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
             </span>
           </div>

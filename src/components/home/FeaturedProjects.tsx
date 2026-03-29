@@ -36,9 +36,9 @@ const FeaturedProjects = () => {
             Featured Projects
           </h2>
         </div>
-        <Link to="/projects" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', color: '#71717a', fontSize: '14px', fontWeight: '500', transition: 'color 0.2s' }}
+        <Link to="/projects" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '6px', color: '#b4b4b4', fontSize: '14px', fontWeight: '500', transition: 'color 0.2s' }}
           onMouseEnter={e => (e.currentTarget.style.color = '#ffffff')}
-          onMouseLeave={e => (e.currentTarget.style.color = '#71717a')}
+          onMouseLeave={e => (e.currentTarget.style.color = '#b4b4b4')}
         >
           View all <ArrowRight size={14} />
         </Link>
@@ -62,7 +62,7 @@ const FeaturedProjects = () => {
         <div style={{
           textAlign: 'center',
           padding: '80px 0',
-          color: '#3f3f46',
+          color: '#71717a',
         }}>
           <p style={{ fontSize: '16px' }}>No featured projects yet.</p>
           <p style={{ fontSize: '13px', marginTop: '8px' }}>Add projects from the admin panel and mark them as featured.</p>
@@ -119,7 +119,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
           alignItems: 'center',
           justifyContent: 'center',
         }}>
-          <span style={{ color: '#3f3f46', fontSize: '13px' }}>No preview</span>
+          <span style={{ color: '#71717a', fontSize: '13px' }}>No preview</span>
         </div>
       )}
 
@@ -151,7 +151,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
 
         {/* Description */}
         <p style={{
-          color: '#71717a',
+          color: '#b4b4b4',
           fontSize: '14px',
           lineHeight: '1.6',
           margin: 0,
@@ -185,12 +185,12 @@ const ProjectCard = ({ project }: { project: Project }) => {
         {/* Links */}
         <div style={{ display: 'flex', gap: '12px', marginTop: '16px', paddingTop: '16px', borderTop: '1px solid #1a1a1a' }}>
           {project.githubUrl && (
-            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#71717a', fontSize: '13px', textDecoration: 'none' }}>
+            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#b4b4b4', fontSize: '13px', textDecoration: 'none' }}>
               <Github size={14} /> GitHub
             </a>
           )}
           {project.liveUrl && (
-            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#71717a', fontSize: '13px', textDecoration: 'none' }}>
+            <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} style={{ display: 'flex', alignItems: 'center', gap: '6px', color: '#b4b4b4', fontSize: '13px', textDecoration: 'none' }}>
               <ExternalLink size={14} /> Live Demo
             </a>
           )}

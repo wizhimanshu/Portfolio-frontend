@@ -87,12 +87,12 @@ const HeroSection = () => {
             <br />
             {hero.name.split(' ')[0]} {hero.name.split(' ').slice(1).join(' ')}
             <br />
-            <span style={{ color: '#3f3f46' }}>this side.</span>
+            <span style={{ color: '#71717a' }}>this side.</span>
           </h1>
 
           {/* Description */}
           <p style={{
-            color: '#71717a',
+            color: '#b4b4b4',
             fontSize: '15px',
             lineHeight: '1.7',
             maxWidth: '400px',
@@ -143,7 +143,7 @@ const HeroSection = () => {
                     cursor: 'pointer',
                     transition: 'border-color 0.2s',
                   }}
-                  onMouseEnter={e => (e.currentTarget.style.borderColor = '#52525b')}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = '#a1a1aa')}
                   onMouseLeave={e => (e.currentTarget.style.borderColor = '#27272a')}
                 >
                   <Download size={16} /> Download Resume
@@ -165,7 +165,7 @@ const HeroSection = () => {
                   cursor: 'pointer',
                   transition: 'border-color 0.2s',
                 }}
-                onMouseEnter={e => (e.currentTarget.style.borderColor = '#52525b')}
+                onMouseEnter={e => (e.currentTarget.style.borderColor = '#a1a1aa')}
                 onMouseLeave={e => (e.currentTarget.style.borderColor = '#27272a')}
               >
                 <Download size={16} /> Download Resume

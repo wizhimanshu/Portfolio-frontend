@@ -6,9 +6,10 @@ import Analytics from './pages/Analytics'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import Achievements from './pages/Achievements'
+import { useWarmup } from './hooks/useWarmup'
 
 function App() {
-
+  useWarmup()
   return (
     <div className="dark">
       <Routes>
