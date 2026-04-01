@@ -10,7 +10,7 @@
 
 **A dynamic, admin-managed full stack portfolio — built from scratch with a 3D interactive hero, K-means cluster analytics, and full CRUD capabilities.**
 
-[🌐 Live Portfolio](https://portfolio-frontend-wpbg.onrender.com) • [⚙️ Backend API](https://portfolio-backend-rfcm.onrender.com/api)
+[🌐 Live Portfolio](https://wizhimanshu.is-a.dev) • [⚙️ Backend API](https://portfolio-backend-rfcm.onrender.com/api)
 
 </div>
 
