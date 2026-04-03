@@ -139,10 +139,6 @@ const HeroSection = () => {
               <div className="sparkle-ring" style={{ position: 'absolute', width: '40px', height: '40px', borderRadius: '50%', border: '2px solid #ffffff', top: '-20px', left: '-20px' }} />
               {/* Star */}
               <div className="sparkle-star" style={{ fontSize: '24px', lineHeight: 1 }}>✦</div>
-              {/* Small dots */}
-              {[0, 60, 120, 180, 240, 300].map(angle => (
-                <div key={angle} className="sparkle-star" style={{ position: 'absolute', width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#ffffff', top: '50%', left: '50%', transform: `rotate(${angle}deg) translateX(20px)`, animationDelay: '0.1s', boxShadow: '0 0 6px #ffffff' }} />
-              ))}
             </div>
           )}
           <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
