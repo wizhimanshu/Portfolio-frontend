@@ -16,6 +16,17 @@ const HeroSection = () => {
     description: 'I am a software development engineer, I love to transform ideas into intelligent softwares especially by leveraging AI and Machine learning.',
   })
   const { isMobile, isTablet } = useBreakpoint()
+  const [sparkle, setSparkle] = useState<{ x: number, y: number, id: number } | null>(null)
+
+  const handleTouch = (e: React.TouchEvent) => {
+    if (!isMobile) return
+    const touch = e.touches[0]
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = touch.clientX - rect.left
+    const y = touch.clientY - rect.top
+    setSparkle({ x, y, id: Date.now() })
+    setTimeout(() => setSparkle(null), 1000)
+  }
 
   useEffect(() => {
     getHero().then(setHero).catch(() => { })
@@ -121,16 +132,20 @@ const HeroSection = () => {
         </div>
 
         {/* Right — Spline Robot */}
-        <div style={{
-          width: isMobile ? '100%' : isTablet ? '50%' : '55%',
-          height: isMobile ? '380px' : 'calc(100vh - 72px)',
-          position: 'relative',
-          marginTop: isMobile ? '0' : '0',
-        }}>
-          <SplineScene
-            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-            className="w-full h-full"
-          />
+        <div onTouchStart={handleTouch} style={{ width: isMobile ? '100%' : isTablet ? '50%' : '55%', height: isMobile ? '380px' : 'calc(100vh - 72px)', position: 'relative' }}>
+          {sparkle && (
+            <div key={sparkle.id} style={{ position: 'absolute', left: sparkle.x, top: sparkle.y, pointerEvents: 'none', zIndex: 20, transform: 'translate(-50%, -50%)' }}>
+              {/* Expanding ring */}
+              <div className="sparkle-ring" style={{ position: 'absolute', width: '40px', height: '40px', borderRadius: '50%', border: '2px solid #ffffff', top: '-20px', left: '-20px' }} />
+              {/* Star */}
+              <div className="sparkle-star" style={{ fontSize: '24px', lineHeight: 1 }}>✦</div>
+              {/* Small dots */}
+              {[0, 60, 120, 180, 240, 300].map(angle => (
+                <div key={angle} className="sparkle-star" style={{ position: 'absolute', width: '6px', height: '6px', borderRadius: '50%', backgroundColor: '#ffffff', top: '50%', left: '50%', transform: `rotate(${angle}deg) translateX(20px)`, animationDelay: '0.1s', boxShadow: '0 0 6px #ffffff' }} />
+              ))}
+            </div>
+          )}
+          <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
         </div>
       </div>
     </section>
