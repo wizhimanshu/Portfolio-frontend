@@ -320,7 +320,7 @@ const Analytics = () => {
             {categoryData.length === 0 ? (
               <p style={{ color: '#71717a', fontSize: '14px' }}>No data yet</p>
             ) : (
-              <ResponsiveContainer width="100%" height={isMobile? 230 : 280}>
+              <ResponsiveContainer width="100%" height={isMobile? 250 : 280}>
               <PieChart margin={{ bottom: 5 }}>
                 <Pie data={categoryData} cx="50%" cy="45%" innerRadius={isMobile ? 50 : 65} outerRadius={isMobile ? 80 : 100} paddingAngle={4} dataKey="value">
                   {categoryData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
