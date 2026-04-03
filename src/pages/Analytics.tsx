@@ -315,8 +315,8 @@ const Analytics = () => {
 
         <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px', display: 'flex', flexDirection: 'column' }}>
           <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: '0 0 6px' }}>By Domain</h3>
-          <p style={{ color: '#a1a1aa', fontSize: '13px', margin: '0 0 0px' }}>Project distribution</p>
-          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', marginTop: '-16px' }}>
+          <p style={{ color: '#a1a1aa', fontSize: '13px', margin: '0 0 12px' }}>Project distribution</p>
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', marginTop: '0' }}>
             {categoryData.length === 0 ? (
               <p style={{ color: '#71717a', fontSize: '14px' }}>No data yet</p>
             ) : (
