@@ -315,14 +315,14 @@ const Analytics = () => {
 
         <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px', display: 'flex', flexDirection: 'column' }}>
           <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: '0 0 6px' }}>By Domain</h3>
-          <p style={{ color: '#a1a1aa', fontSize: '13px', margin: '0 0 12px' }}>Project distribution</p>
+          <p style={{ color: '#a1a1aa', fontSize: '13px', margin: isMobile ? '0 0 20px' : isTablet ? '0 0 20px' : '0 0 0px' }}>Project distribution</p>
           <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', marginTop: '0' }}>
             {categoryData.length === 0 ? (
               <p style={{ color: '#71717a', fontSize: '14px' }}>No data yet</p>
             ) : (
               <ResponsiveContainer width="100%" height={isMobile? 250 : 280}>
               <PieChart margin={{ bottom: 5 }}>
-                <Pie data={categoryData} cx="50%" cy="45%" innerRadius={isMobile ? 50 : 65} outerRadius={isMobile ? 80 : 100} paddingAngle={4} dataKey="value">
+                <Pie data={categoryData} cx="50%" cy="50%" innerRadius={isMobile ? 50 : 65} outerRadius={isMobile ? 80 : 100} paddingAngle={4} dataKey="value">
                   {categoryData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Pie>
                 <Tooltip formatter={(val, name) => [val, name]} contentStyle={{ backgroundColor: '#111111', border: '1px solid #27272a', borderRadius: '10px', color: '#ffffff' }} />
