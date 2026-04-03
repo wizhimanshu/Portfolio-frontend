@@ -3,6 +3,7 @@ import { Github, ExternalLink } from 'lucide-react'
 import { getProjects } from '../api/projects'
 import { getCategories } from '../api/categories'
 import { Project, Category } from '../types'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 const Projects = () => {
   const [projects, setProjects] = useState<Project[]>([])
@@ -10,6 +11,7 @@ const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [loading, setLoading] = useState(true)
+  const { isMobile, isTablet } = useBreakpoint()
 
   useEffect(() => {
     getCategories().then(setCategories).catch(() => { })
@@ -24,7 +26,7 @@ const Projects = () => {
     : projects
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: '60px 64px' }}>
+    <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: isMobile ? '40px 20px' : '60px 64px' }}>
       {/* Header */}
       <div style={{ marginBottom: '48px' }}>
         <p style={{ color: '#22c55e', fontSize: '13px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>Work</p>
@@ -33,7 +35,7 @@ const Projects = () => {
       </div>
 
       {/* Category Filter */}
-      <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '40px' }}>
+      <div style={{ display: 'flex', gap: isMobile? '6px' : '8px', flexWrap: 'wrap', marginBottom: '40px' }}>
         <button onClick={() => setActiveCategory('')} style={{ padding: '8px 20px', borderRadius: '999px', border: '1px solid', borderColor: activeCategory === '' ? '#22c55e' : '#27272a', backgroundColor: activeCategory === '' ? '#22c55e11' : 'transparent', color: activeCategory === '' ? '#22c55e' : '#b4b4b4', fontSize: '13px', fontWeight: '500', cursor: 'pointer', transition: 'all 0.2s' }}>
           All ({projects.length})
         </button>
@@ -46,7 +48,7 @@ const Projects = () => {
 
       {/* Grid */}
       {loading ? (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
           {[1, 2, 3, 4, 5, 6].map(i => (
             <div key={i} style={{ height: '320px', backgroundColor: '#111111', borderRadius: '16px', border: '1px solid #1a1a1a' }} />
           ))}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getAchievements } from '../api/achievements'
 import { Achievement } from '../types'
 import { ExternalLink, Trophy, Award, Star, X } from 'lucide-react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 const typeConfig: Record<string, { label: string, color: string, icon: any }> = {
     hackathon: { label: 'Hackathon', color: '#f59e0b', icon: Trophy },

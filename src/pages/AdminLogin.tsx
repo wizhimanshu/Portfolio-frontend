@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthStore } from '../store/authStore'
 import api from '../api/axios'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 const AdminLogin = () => {
   const [email, setEmail] = useState('')
@@ -10,6 +11,7 @@ const AdminLogin = () => {
   const [loading, setLoading] = useState(false)
   const { login } = useAuthStore()
   const navigate = useNavigate()
+  const { isMobile } = useBreakpoint()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,7 +30,7 @@ const AdminLogin = () => {
 
   return (
     <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <div style={{ width: '100%', maxWidth: '400px', padding: '0 24px' }}>
+      <div style={{ width: '100%', maxWidth: '400px', padding: isMobile ? '0 20px' : '0 24px' }}>
         {/* Logo */}
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <div style={{ width: '48px', height: '48px', borderRadius: '12px', backgroundColor: '#ffffff', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 16px', color: '#0a0a0a', fontWeight: '800', fontSize: '20px' }}>H</div>

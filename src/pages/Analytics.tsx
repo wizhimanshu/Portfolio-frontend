@@ -6,12 +6,14 @@ import { getAchievements } from '../api/achievements'
 import { Project, Skill, Category, Achievement } from '../types'
 import { PieChart, Pie, Cell, Legend, Tooltip, ResponsiveContainer, BarChart, Bar, XAxis, YAxis } from 'recharts'
 import { Github, ExternalLink, Trophy, Award, Star } from 'lucide-react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 const CurrentMonthCluster = ({ projects, achievements, categories }: { projects: Project[], achievements: Achievement[], categories: Category[] }) => {
   const now = new Date()
   const currentMonth = now.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
   const [hoveredItem, setHoveredItem] = useState<any>(null)
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 })
+  const { isMobile, isTablet } = useBreakpoint()
 
   const currentProjects = projects.filter(p => {
     const d = new Date(p.projectDate)
@@ -56,7 +58,7 @@ const CurrentMonthCluster = ({ projects, achievements, categories }: { projects:
 
 
   return (
-    <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px', position: 'relative' }}>
+    <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding:  '28px', position: 'relative' }}>
       <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', marginBottom: '8px' }}>
         <div>
           <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: '0 0 4px' }}>Monthly Activity</h3>
@@ -163,6 +165,7 @@ const Analytics = () => {
   const [loading, setLoading] = useState(true)
   const [selectedItem, setSelectedItem] = useState<any>(null)
   const [selectedType, setSelectedType] = useState<'project' | 'achievement' | 'publication' | null>(null)
+  const { isMobile, isTablet } = useBreakpoint()
 
   useEffect(() => {
     Promise.all([
@@ -224,7 +227,7 @@ const Analytics = () => {
   }
 
   return (
-    <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: '60px 64px' }}>
+    <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: isMobile ? '40px 20px': '60px 64px' }}>
       <div style={{ marginBottom: '48px' }}>
         <p style={{ color: '#22c55e', fontSize: '13px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>Insights</p>
         <h1 style={{ color: '#ffffff', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: '800', letterSpacing: '-0.02em', margin: 0 }}>Analytics</h1>
@@ -232,7 +235,7 @@ const Analytics = () => {
       </div>
 
       {/* Stats Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '40px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: '16px', marginBottom: '40px' }}>
         {[
           { label: 'Total Projects', value: projects.length },
           { label: 'Domains', value: categories.length },
@@ -247,7 +250,7 @@ const Analytics = () => {
       </div>
 
       {/* Three Latest Cards */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginBottom: '40px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(3, 1fr)', gap: '16px', marginBottom: '40px' }}>
         <div onClick={() => { setSelectedItem(latestProject); setSelectedType('project') }} style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '24px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '16px' }}>
             <span style={{ padding: '3px 10px', backgroundColor: '#22c55e22', border: '1px solid #22c55e44', borderRadius: '999px', color: '#22c55e', fontSize: '11px', fontWeight: '600' }}>Latest Project</span>
@@ -307,27 +310,27 @@ const Analytics = () => {
       </div>
 
       {/* Charts Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px', marginBottom: '40px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '2fr 1fr', gap: '24px', marginBottom: '40px' }}>
         <CurrentMonthCluster projects={projects} achievements={achievements} categories={categories} />
 
-        <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px' }}>
+        <div style={{ backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '16px', padding: '28px', display: 'flex', flexDirection: 'column' }}>
           <h3 style={{ color: '#ffffff', fontSize: '18px', fontWeight: '700', margin: '0 0 6px' }}>By Domain</h3>
-          <p style={{ color: '#a1a1aa', fontSize: '13px', margin: '0 0 28px' }}>Project distribution</p>
-          {categoryData.length === 0 ? (
-            <div style={{ height: '200px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <p style={{ color: '#a1a1aa', fontSize: '13px', margin: '0 0 0px' }}>Project distribution</p>
+          <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '200px', marginTop: '-16px' }}>
+            {categoryData.length === 0 ? (
               <p style={{ color: '#71717a', fontSize: '14px' }}>No data yet</p>
-            </div>
-          ) : (
-            <ResponsiveContainer width="100%" height={220}>
-              <PieChart>
-                <Pie data={categoryData} cx="50%" cy="50%" innerRadius={55} outerRadius={85} paddingAngle={4} dataKey="value">
+            ) : (
+              <ResponsiveContainer width="100%" height={280}>
+              <PieChart margin={{ bottom: 5 }}>
+                <Pie data={categoryData} cx="50%" cy="45%" innerRadius={65} outerRadius={100} paddingAngle={4} dataKey="value">
                   {categoryData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
                 </Pie>
                 <Tooltip formatter={(val, name) => [val, name]} contentStyle={{ backgroundColor: '#111111', border: '1px solid #27272a', borderRadius: '10px', color: '#ffffff' }} />
-                <Legend iconType="circle" iconSize={8} formatter={(val) => <span style={{ color: '#a1a1aa', fontSize: '12px' }}>{val}</span>} />
+                <Legend iconType="circle" iconSize={8} wrapperStyle={{ paddingTop: '16px' }} formatter={(val) => <span style={{ color: '#a1a1aa', fontSize: '12px' }}>{val}</span>} />
               </PieChart>
-            </ResponsiveContainer>
-          )}
+              </ResponsiveContainer>
+            )}
+          </div>
         </div>
       </div>
 

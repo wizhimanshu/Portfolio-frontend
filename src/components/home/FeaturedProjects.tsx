@@ -3,11 +3,13 @@ import { Link } from 'react-router-dom'
 import { Github, ExternalLink, ArrowRight } from 'lucide-react'
 import { getFeaturedProjects } from '../../api/projects'
 import { Project } from '../../types'
+import { useBreakpoint } from '../../hooks/useBreakpoint'
 
 
 const FeaturedProjects = () => {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
+  const { isMobile, isTablet } = useBreakpoint()
 
   useEffect(() => {
     getFeaturedProjects()
@@ -19,7 +21,7 @@ const FeaturedProjects = () => {
   return (
     <section style={{
       backgroundColor: '#0a0a0a',
-      padding: '40px 64px',
+      padding: isMobile ? '40px 24px' : '40px 64px',
 
       margin: '0 auto',
       borderTop: '1px solid #27272a',
@@ -29,6 +31,8 @@ const FeaturedProjects = () => {
         display: 'flex',
         alignItems: 'flex-start',
         justifyContent: 'space-between',
+        flexDirection: isMobile ? 'column' : 'row',
+        gap: isMobile ? '12px' : '0',
         marginBottom: '48px',
       }}>
         <div>
@@ -46,7 +50,7 @@ const FeaturedProjects = () => {
 
       {/* Projects Grid */}
       {loading ? (
-        <div style={{ display: 'flex', gap: '24px' }}>
+        <div style={{ display: 'flex', gap: '24px' , gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(280px, 1fr))',}}>
           {[1, 2, 3].map(i => (
             <div key={i} style={{
               flex: 1,

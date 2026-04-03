@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { sendContactMessage } from '../../api/contact'
 import { Mail, Send, Github, Linkedin } from 'lucide-react'
+import { i } from 'framer-motion/client'
+import { useBreakpoint } from '../../hooks/useBreakpoint'
 
 const ContactSection = () => {
     const [form, setForm] = useState({ name: '', email: '', message: '' })
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
     const [error, setError] = useState('')
+    const { isMobile } = useBreakpoint()
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -28,8 +31,8 @@ const ContactSection = () => {
     const inputStyle = { width: '100%', padding: '12px 16px', backgroundColor: '#111111', border: '1px solid #1a1a1a', borderRadius: '10px', color: '#ffffff', fontSize: '14px', outline: 'none', boxSizing: 'border-box' as const, transition: 'border-color 0.2s' }
 
     return (
-        <section style={{ backgroundColor: '#0a0a0a', padding: '80px 64px 80px', borderTop: '1px solid #27272a' }}>
-            <div style={{ margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '80px', alignItems: 'flex-start' }}>
+        <section style={{ backgroundColor: '#0a0a0a', padding: isMobile ? '40px 20px 60px' : '80px 64px', borderTop: '1px solid #27272a' }}>
+            <div style={{ margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile? '1fr' : '1fr 1fr', gap: isMobile ? '40px 20px 60px' : '80px', alignItems: 'flex-start' }}>
                 {/* Left */}
                 <div>
                     <p style={{ color: '#22c55e', fontSize: '13px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>Contact</p>
