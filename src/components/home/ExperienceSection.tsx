@@ -21,7 +21,9 @@ const ExperienceSection = () => {
 
                 <div style={{ position: 'relative' }}>
                     {/* Center vertical line */}
-                    <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '1px', backgroundColor: '#1a1a1a', transform: 'translateX(-50%)' }} />
+                    <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '1px', backgroundColor: '#1a1a1a', transform: 'translateX(-50%)', display: isMobile ? 'none' : 'block' }} />
+
+                    {isMobile && <div style={{ position: 'absolute', left: '7px', top: 0, bottom: 0, width: '1px', backgroundColor: '#1a1a1a' }} />}
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
                         {experiences.map((exp, index) => (
