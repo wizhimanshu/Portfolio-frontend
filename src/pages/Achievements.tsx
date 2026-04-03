@@ -15,6 +15,7 @@ const Achievements = () => {
     const [filter, setFilter] = useState('all')
     const [loading, setLoading] = useState(true)
     const [selectedAchievement, setSelectedAchievement] = useState<Achievement | null>(null)
+    const { isMobile, isTablet } = useBreakpoint()
 
     useEffect(() => {
         getAchievements()
@@ -33,16 +34,16 @@ const Achievements = () => {
     }
 
     return (
-        <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: '60px 64px' }}>
+        <div style={{ minHeight: '100vh', backgroundColor: '#0a0a0a', padding: isMobile ? '40px 16px' : '60px 64px' }}>
             {/* Header */}
-            <div style={{ marginBottom: '48px' }}>
+            <div style={{ marginBottom: isMobile? '24px' :'48px' }}>
                 <p style={{ color: '#22c55e', fontSize: '13px', fontWeight: '600', letterSpacing: '0.1em', textTransform: 'uppercase', marginBottom: '8px' }}>Accomplishments</p>
                 <h1 style={{ color: '#ffffff', fontSize: 'clamp(32px, 5vw, 56px)', fontWeight: '800', letterSpacing: '-0.02em', margin: '0 0 12px' }}>Achievements</h1>
                 <p style={{ color: '#a1a1aa', fontSize: '15px', margin: 0 }}>Hackathons, certifications and awards I've earned along the way.</p>
             </div>
 
             {/* Filter tabs */}
-            <div style={{ display: 'flex', gap: '8px', marginBottom: '40px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: isMobile ? '6px' : '8px', marginBottom: '40px', flexWrap: 'wrap' }}>
                 {['all', 'hackathon', 'certificate', 'award'].map(type => (
                     <button key={type} onClick={() => setFilter(type)} style={{ padding: '8px 20px', borderRadius: '999px', border: '1px solid', borderColor: filter === type ? '#22c55e' : '#27272a', backgroundColor: filter === type ? '#22c55e11' : 'transparent', color: filter === type ? '#22c55e' : '#b4b4b4', fontSize: '13px', fontWeight: '500', cursor: 'pointer', transition: 'all 0.2s', textTransform: 'capitalize' }}>
                         {type === 'all' ? 'All' : typeConfig[type]?.label} ({counts[type as keyof typeof counts]})
@@ -52,7 +53,7 @@ const Achievements = () => {
 
             {/* Grid */}
             {loading ? (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+                <div style={{ display: 'grid', width: '100%', gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
                     {[1, 2, 3].map(i => <div key={i} style={{ height: '320px', backgroundColor: '#111111', borderRadius: '16px', border: '1px solid #1a1a1a' }} />)}
                 </div>
             ) : filtered.length === 0 ? (
@@ -60,7 +61,7 @@ const Achievements = () => {
                     <p>No achievements in this category yet.</p>
                 </div>
             ) : (
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+                <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px', width: '100%' }}>
                     {filtered.map(achievement => (
                         <AchievementCard key={achievement.id} achievement={achievement} onClick={() => setSelectedAchievement(achievement)} />
                     ))}
