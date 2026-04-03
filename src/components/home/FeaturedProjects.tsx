@@ -50,7 +50,7 @@ const FeaturedProjects = () => {
 
       {/* Projects Grid */}
       {loading ? (
-        <div style={{ display: 'flex', gap: '24px' , gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(280px, 1fr))',}}>
+        <div style={{ display: 'flex', gap: '24px' , gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',}}>
           {[1, 2, 3].map(i => (
             <div key={i} style={{
               flex: 1,
@@ -74,7 +74,7 @@ const FeaturedProjects = () => {
       ) : (
         <div style={{
           display: 'grid',
-          gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(auto-fill, minmax(280px, 1fr))',
+          gridTemplateColumns: isMobile ? '1fr' : isTablet ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
           gap: '24px',
         }}>
           {projects.map(project => (
